@@ -6,21 +6,28 @@
 		<link type="text/css" rel="stylesheet" href="css/Carousels.css">
 	</head>
 	<body>
-		<ui id="carousels" >
+
+		<ul id="carousels" >
+<!--			这里是插入的图片-->
 			<li class="item item_active" ><img src="./img/swiper/01_750x390.jpg" alt=""></li>
 			<li class="item" ><img src="./img/swiper/02_750x390.jpg" alt=""></li>
 			<li class="item" ><img src="./img/swiper/03_750x390.jpg" alt=""></li>
 			<li class="item" ><img src="./img/swiper/04_750x390.jpg" alt=""></li>
+<!--			这里是要放入两个可点击的按钮，两都是一张指向右边的箭头-->
 			<div  class="btn btn_left"><img src="./img/arrows.svg" alt=""></div>
 			<div  class="btn btn_right"><img src="./img/arrows.svg" alt=""></div>
+<!--			这是轮播图里的小点点,可点击，有几张图片就放几个点-->
 			<div id="carousels_point">
 				<li class="point point_active"></li>
 				<li  class="point"></li>
 				<li  class="point"></li>
 				<li  class="point"></li>
 			</div>
-		</ui>
-	</body>
+		</ul>
+<!--		以模块的方式引入Carousels.js-->
 	<script src="js/Carousels.js" type="module"></script>
+<!--		main.js是你的主程序入口-->
 	<script src="js/main.js" type="module"></script>
+
+	</body>
 </html>

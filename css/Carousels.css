@@ -1,0 +1,133 @@
+:root{
+    /*全局设置*/
+    --care_hight:200px;/*设置卡片的高度*/
+    --care_width:340px;/*设置卡片的宽度*/
+    --transiton_opacity:opacity 1s;/*设置淡入淡出效果的值*/
+
+    /*按钮的设置*/
+    --btn_isShow:block;/*是否显示按钮*/
+    --btn_opacity:0.1;/*设置按钮透明度*/
+    --btn_radius:2px;/*置按钮圆角值*/
+    --btn_hight:100px;/*设置按钮的高度*/
+    --btn_width:20px;/*设置按钮的宽度*/
+    /*按钮垂直区中的位置top = 父容器的高度/2 - 自己个高度/2*/
+    /*top = (父高度 - 自己的高度)/2*/
+    --btn_top:50px;
+
+    /*points*/
+    --points_width:5px;
+    --points_innerColor:white;
+    --points_outerColor:purple;
+}
+*,body{
+    margin: 0;
+    padding: 0;
+}
+ul,li{
+    list-style: none;
+    text-decoration: none;
+}
+#carousels{
+    height: var(--care_hight);
+    width: var(--care_width);
+    position: relative;
+    display: flex;
+}
+.item{
+    height: var(--care_hight);
+    width: var(--care_width);
+    position: absolute;
+    z-index: -1;
+    /* 淡出淡入效果 */
+    opacity: 0;
+    transition: var(--transiton_opacity);
+}
+
+/*设置插入的图片自适应大小，平铺*/
+.item>img{
+    /*按照宽度等比缩放：*/
+    /*这样子会在下部分产生空白*/
+    /*height: auto;*/
+    /*width: auto;*/
+    /*max-height: 100%;*/
+    /*max-width: 100%;*/
+
+    /*平铺：*/
+    height: var(--care_hight);
+    width: var(--care_width);
+}
+.item>img:hover{
+    /*聚焦状态*/
+    cursor: pointer;
+    /*下面配置图片无效：*/
+    /*box-shadow: 0 0 20px rgba(0,0,0,1) inset;*/
+}
+.item_active{
+    z-index: 0;
+    opacity: 1;
+}
+/*
+按钮样式
+*/
+.btn{
+    display: var(--btn_isShow);
+    border-radius: var(--btn_radius);
+    height: var(--btn_hight);
+    width: var(--btn_width);
+    z-index:10 ;
+    position: absolute;
+
+    top: var(--btn_top);
+    line-height: var(--btn_hight);
+    font-size: 12px;
+
+    background-color: rgba(0,0,0,var(--btn_opacity));
+    border-style: none;
+    color: rgba(255,255,255,0.8);
+}
+.btn:hover{
+    cursor: pointer;
+}
+.btn_right{
+    right: 0;
+}
+.btn>img{
+
+    /*svg类型的图标会铺满*/
+    height: var(--btn_hight);
+    width: var(--btn_width);
+    opacity: 0.8;
+}
+.btn_left>img{
+    transform: rotate(180deg);
+}
+/*
+points的样式
+*/
+#carousels_point{
+    /*background: rebeccapurple;*/
+    width: 40%;
+    height: auto;
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    right: 0;
+    bottom: 10px;
+}
+.point{
+    opacity: 0.3;
+    background: var(--points_innerColor);
+    height: var(--points_width);
+    width: var(--points_width);
+    border-radius: 50%;
+    margin: 5px;
+    border: 3px solid var(--points_outerColor);
+
+}
+.point:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+.point_active{
+    opacity: 1;
+}
